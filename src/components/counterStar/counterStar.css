@@ -1,0 +1,18 @@
+.counterStar{
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 7px;
+    transform: rotate(-25deg);
+}
+
+.counterStar > svg {
+    color: #FFDD64;
+    fill: #FFDD64;
+    width: 11px;
+    height: 11px;
+}

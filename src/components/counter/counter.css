@@ -1,0 +1,16 @@
+.containerCounter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 8px;
+    background: #233138;
+    width: max-content;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    border: 1.71429px solid rgba(33, 39, 70, 0.5);
+}
+
+.containerCounter > .counter{
+    color: #EFF0F6;
+    font-size: 17px;
+}
