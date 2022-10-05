@@ -1,0 +1,9 @@
+.modalButtons{
+    width: fit-content;
+    padding: 7px 15px;
+    transition:all .25s ease-in-out;
+}
+.modalButtons:hover {
+    transform: scale(.95);
+    cursor: pointer;
+}
