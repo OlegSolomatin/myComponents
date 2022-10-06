@@ -1,0 +1,15 @@
+.defaultButton{
+    background: var(--color-bg-gray);
+    border-radius: var(--border-radius-block);
+    text-transform: uppercase;
+    color: var(--color-text-white);
+    padding: 20px 76px;
+    cursor: pointer;
+    font-size: 16px;
+    opacity: .5;
+}
+@media screen and (max-width: 767.7px){
+    .defaultButton{
+        padding: 20px 124px;
+    }
+}

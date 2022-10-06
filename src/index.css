@@ -1,12 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@400;600&display=swap');
+
+:root{
+  --color-bg-white: #F4F3F6;
+  --color-bg-darkWhite: #EDE8E3;
+  --color-bg-green: #45C486;
+  --color-bg-gray: #747475;
+  --color-bg-gradient: linear-gradient(90deg, rgba(18, 231, 48, 1) 0%, rgba(0, 212, 255, 1) 100%);
+
+  --color-svg-green: #45C486;
+
+  --color-text-black: #000000;
+  --color-text-black-primari: #060710;
+  --color-text-white: #EDE8E2;
+  --color-text-white-primari: #F4F3F6;
+  --color-tetx-grey: #757575;
+  --color-text-green: #20BA6E;
+  --color-text-blue: #191D63;
+
+  --border-radius-progress: 16px;
+  --border-radius-block: 8px;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Blinker', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
