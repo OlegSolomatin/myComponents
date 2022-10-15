@@ -3,11 +3,17 @@ import './quizHeader.css';
 import QuizScore from "../quizScore/quizScore";
 import CloseButton from "../quizButton/closeButton";
 
-const QuizHeader = () => {
+const QuizHeader = (props) => {
     return(
         <header className='containerQuiz--header'>
-            <QuizScore />
-            <h3 className="titleQuiz">Fantasy Quiz #156</h3>
+            <QuizScore score={props.score} />
+            {
+                props !== '' ? (
+                    <h3 className="titleQuiz">{props.titleQuiz}</h3>
+                    ) : (
+                        ''
+                    )
+            }
             <CloseButton />
         </header>
     )

@@ -36,6 +36,7 @@
 .question-item:hover{
     cursor: pointer;
     background: var(--color-bg-green);
+    color: var(--color-text-white);
 }
 
 .question-item:hover >.item-number{

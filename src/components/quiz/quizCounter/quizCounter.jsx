@@ -5,8 +5,7 @@ import './quizCounter.css';
 const QuizCounter = (props) => {
   return(
       <div className="containerCounter">
-          {/*{props.numberQuestion} / {props.totalQuestions}*/}
-          1/5
+          {props.stepCounter + 1}&nbsp;/&nbsp;{props.quizLength}
       </div>
   )
 }

@@ -11,8 +11,7 @@ const QuizScore = (props) => {
 
             </div>
             <div className="score-counter">
-                {/*{props.score}*/}
-                100
+                {props.score}
             </div>
         </div>
     )

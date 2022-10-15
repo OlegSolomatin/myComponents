@@ -6,7 +6,7 @@ const QuizProgress = (props) => {
     return(
         <div className="containerProgress mob:w-full flex items-center mob:justify-center mob:mb-10">
             <QuizProgressBar stepProgressBar={props.stepProgressBar}/>
-            <QuizCounter/>
+            <QuizCounter quizLength={props.quizLength} stepCounter={props.stepCounter}/>
         </div>
     )
 }

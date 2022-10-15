@@ -10,8 +10,14 @@ const QuizFooter = (props) => {
 
   return(
       <footer className="containerQuiz--footer">
-          {isDesktop && <QuizProgress stepProgressBar={props.stepProgressBar} />}
-          <QuizButton onClickContinue={props.onClickContinue}/>
+          {
+              props.stepProgressBar >= '99' ? (
+                  <QuizButton textButton={props.textButton}/>
+              ) : (
+                  isDesktop && <QuizProgress quizLength={props.quizLength} stepCounter={props.stepCounter} stepProgressBar={props.stepProgressBar} />
+              )
+          }
+
       </footer>
   )
 }

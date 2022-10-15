@@ -3,7 +3,7 @@ import './quizButton.css';
 
 const QuizButton = (props) => {
     return(
-        <button onClick={props.onClickContinue} className='defaultButton'>Continue</button>
+        <a href='/' className='defaultButton'>{props.textButton}</a>
     )
 }
 

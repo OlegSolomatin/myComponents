@@ -7,9 +7,9 @@ import QuizFooter from "./quizFooter/quizFooter";
 const Quiz = (props) => {
     return(
         <div className="containerQuiz">
-            <QuizHeader />
-            <QuizBody question={props.question} onClickVariant={props.onClickVariant}/>
-            <QuizFooter stepProgressBar={props.stepProgressBar} onClickContinue={props.onClickContinue} />
+            <QuizHeader score={props.score} titleQuiz={props.titleQuiz} />
+            <QuizBody quizLength={props.quizLength} stepCounter={props.stepCounter} stepProgressBar={props.stepProgressBar} question={props.question} onClickVariant={props.onClickVariant}/>
+            <QuizFooter quizLength={props.quizLength} stepCounter={props.stepCounter} stepProgressBar={props.stepProgressBar} />
         </div>
     )
 }
