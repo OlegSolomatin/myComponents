@@ -1,16 +1,27 @@
 import React from 'react';
-import './index.scss';
+import './index.css';
 import Collection from "./Collection";
 import { SkeletonDesktop } from './components/SkeletonGallery/SkeletonDesktop'
+
+const categories =  [
+    { "name": "Все" },
+    { "name": "Море" },
+    { "name": "Горы" },
+    { "name": "Архитектура" },
+    { "name": "Города" }
+];
 
 function AppGallery() {
 
     const [collection, setCollection] = React.useState([]);
     const [isLoading, setLoading] = React.useState([true]);
     const [serachValue, setSerachValue] = React.useState('');
+    const [categoryID, setCategoryID] = React.useState(0);
+    const [page, setPage] = React.useState(0);
 
     React.useEffect(() => {
-        fetch('https://63530bb4d0bca53a8eb9cab4.mockapi.io/dataCollection')
+        setLoading(true)
+        fetch(`https://63530bb4d0bca53a8eb9cab4.mockapi.io/dataCollection?${categoryID ? `category=${categoryID}` : ''}`)
             .then(res=>res.json())
             .then(json=>{
                 setCollection(json);
@@ -18,27 +29,27 @@ function AppGallery() {
             }).catch(err => {
                 console.warn(err);
         }).finally(() => setLoading(false))
-    }, []);
+    }, [categoryID]);
 
   return (
     <div className="AppGallery">
         <h1>Моя коллекция фотографий</h1>
         <header className="top">
             <ul className="tags">
-                <li className="active">Все</li>
-                <li>Горы</li>
-                <li>Море</li>
-                <li>Архитектура</li>
-                <li>Города</li>
+                {
+                    categories.map((obj, index) => (
+                        <li onClick={() => setCategoryID(index)} className={categoryID === index ? 'active' : ''} key={obj.name}>{obj.name}</li>
+                    ))
+                }
             </ul>
             <input value={serachValue} onChange={e => setSerachValue(e.target.value)} className="search-input" placeholder="Поиск по названию" />
         </header>
             {isLoading ? (
-                <div className="content">
+                <main className="content">
                     <SkeletonDesktop/>
                     <SkeletonDesktop/>
                     <SkeletonDesktop/>
-                </div>
+                </main>
             ) : (
                 <main className="content">
                     {
