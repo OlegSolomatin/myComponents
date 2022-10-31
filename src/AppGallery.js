@@ -15,13 +15,17 @@ function AppGallery() {
 
     const [collection, setCollection] = React.useState([]);
     const [isLoading, setLoading] = React.useState([true]);
-    const [serachValue, setSerachValue] = React.useState('');
+    const [searchValue, setSearchValue] = React.useState('');
     const [categoryID, setCategoryID] = React.useState(0);
-    const [page, setPage] = React.useState(0);
+    const [page, setPage] = React.useState(1);
 
     React.useEffect(() => {
         setLoading(true)
-        fetch(`https://63530bb4d0bca53a8eb9cab4.mockapi.io/dataCollection?${categoryID ? `category=${categoryID}` : ''}`)
+
+        const categoryRequest = categoryID ? `category=${categoryID}` : '';
+        const pageRequest = `page=${page}`;
+
+        fetch(`https://63530bb4d0bca53a8eb9cab4.mockapi.io/dataCollection?${pageRequest}&limit=3&${categoryRequest}`)
             .then(res=>res.json())
             .then(json=>{
                 setCollection(json);
@@ -29,7 +33,7 @@ function AppGallery() {
             }).catch(err => {
                 console.warn(err);
         }).finally(() => setLoading(false))
-    }, [categoryID]);
+    }, [categoryID, page]);
 
   return (
     <div className="AppGallery">
@@ -42,7 +46,7 @@ function AppGallery() {
                     ))
                 }
             </ul>
-            <input value={serachValue} onChange={e => setSerachValue(e.target.value)} className="search-input" placeholder="Поиск по названию" />
+            <input value={searchValue} onChange={e => setSearchValue(e.target.value)} className="search-input" placeholder="Поиск по названию" />
         </header>
             {isLoading ? (
                 <main className="content">
@@ -53,7 +57,7 @@ function AppGallery() {
             ) : (
                 <main className="content">
                     {
-                        collection.filter((obj) => obj.name.toLowerCase().includes(serachValue.toLowerCase())).map((obj, index) => (
+                        collection.filter((obj) => obj.name.toLowerCase().includes(searchValue.toLowerCase())).map((obj, index) => (
                             <Collection
                                 key={index}
                                 name={obj.name}
@@ -66,9 +70,12 @@ function AppGallery() {
             }
         <footer>
             <ul className="pagination">
-                <li>1</li>
-                <li className="active">2</li>
-                <li>3</li>
+                {
+
+                    [...Array(3)].map((_, index) => (
+                        <li onClick={() => setPage(index + 1)} className={page === index + 1 ? 'active' : ''}>{index + 1}</li>
+                    ))
+                }
             </ul>
         </footer>
     </div>
