@@ -1,9 +1,0 @@
-.containerQuiz{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: space-between;
-    background: var(--color-bg-darkWhite);
-}
