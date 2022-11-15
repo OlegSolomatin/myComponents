@@ -10,6 +10,9 @@ module.exports = {
         // => @media (min-height: 800px) { ... }
       }
     },
+  darkMode: "class",
+  theme: {
+    extend: {},
   },
   plugins: [],
 }
